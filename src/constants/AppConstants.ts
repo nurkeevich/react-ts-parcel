@@ -1,4 +1,5 @@
 export enum Routes {
     HOME_PAGE = "/",
-    HELP_PAGE = "/help"
+    HELP_PAGE = "/help",
+    ADD_EXPENSE = "/add"
 }

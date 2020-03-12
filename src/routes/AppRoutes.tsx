@@ -5,6 +5,7 @@ import { Routes } from "../constants/AppConstants";
 import HomePage from "../containers/HomePage";
 import HelpPage from "../containers/HelpPage";
 import NotFoundPage from "../containers/NotFoundPage";
+import { AddExpensePage } from "../containers/AddExpensePage";
 
 const AppRoutes = () => {
     return (
@@ -16,6 +17,10 @@ const AppRoutes = () => {
                         path={Routes.HOME_PAGE}
                         exact={true}
                         children={HomePage}
+                    />
+                    <Route
+                        path={Routes.ADD_EXPENSE}
+                        children={AddExpensePage}
                     />
                     <Route path={Routes.HELP_PAGE} children={HelpPage} />
                     <Route children={NotFoundPage} />
