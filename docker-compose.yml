@@ -2,8 +2,8 @@ version: "3"
 
 services:
     web-react:
-        image: react-ts-parcel:0.0.2
+        image: react-ts-parcel:latest
         ports:
-            - "1234:1234"
+            - "3000:3000"
         volumes:
-            - /Users/tilekbekkadyrov/learn/React/my_apps/react-ts-parcel/src:/app/src/
+            - /Users/tilekbekkadyrov/learn/React/my_apps/react-ts-parcel/:/app/
