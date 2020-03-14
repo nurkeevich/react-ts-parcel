@@ -5,7 +5,8 @@ import { Routes } from "../constants/AppConstants";
 import HomePage from "../containers/HomePage";
 import HelpPage from "../containers/HelpPage";
 import NotFoundPage from "../containers/NotFoundPage";
-import { AddExpensePage } from "../containers/AddExpensePage";
+import AddExpensePage from "../containers/expense/AddExpensePage";
+import EditExpensePage from "../containers/expense/EditExpensePage";
 
 const AppRoutes = () => {
     return (
@@ -21,6 +22,10 @@ const AppRoutes = () => {
                     <Route
                         path={Routes.ADD_EXPENSE}
                         children={AddExpensePage}
+                    />
+                    <Route
+                        path={Routes.EDIT_EXPENSE + "/:id"}
+                        children={EditExpensePage}
                     />
                     <Route path={Routes.HELP_PAGE} children={HelpPage} />
                     <Route children={NotFoundPage} />
