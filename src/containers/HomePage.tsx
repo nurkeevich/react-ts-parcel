@@ -1,9 +1,10 @@
 import React from "react";
+import { ExpenseList } from "./expense/ExpenseList";
 
 const HomePage = () => {
     return (
         <div>
-            <h1>Home Page</h1>
+            <ExpenseList />
         </div>
     );
 };
