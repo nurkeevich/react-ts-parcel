@@ -7,7 +7,22 @@ import {
 } from "../types/expenses";
 
 const initialState: ExpensesState = {
-    expenses: []
+    expenses: [
+        {
+            id: "1",
+            amount: 1500.0,
+            description: "Rent",
+            note: "Rent payment for October",
+            createdAt: 123456678
+        },
+        {
+            id: "2",
+            amount: 2500.0,
+            description: "Bank",
+            note: "Bank payment for November",
+            createdAt: 9876543221
+        }
+    ]
 };
 
 export const expensesReducer = (
@@ -38,6 +53,9 @@ export const expensesReducer = (
         case REMOVE_EXPENSE:
             return {
                 expenses: state.expenses.filter(expense => {
+                    console.log("Expense ID " + expense.id);
+                    console.log("Action ID " + action.id);
+
                     expense.id !== action.id;
                 })
             };

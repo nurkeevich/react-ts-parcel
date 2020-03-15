@@ -14,15 +14,14 @@ const ExpenseListItem = ({ expense }: ExpenseListItemProps) => {
 
     const handleRemove = () => {
         dispatch(removeExpense(id!));
+        console.log("Remove button clicked");
     };
 
     return (
         <div>
             <h3>{description}</h3>
-            <p>
-                amount: {amount}
-                createdAt: {createdAt}
-            </p>
+            <p>amount: {amount}</p>
+            <p>createdAt: {createdAt}</p>
             <button onClick={handleRemove}>Remove</button>
         </div>
     );

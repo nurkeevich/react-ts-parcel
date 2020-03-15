@@ -8,7 +8,6 @@ import {
 } from "../types/expenses";
 
 export const addExpense = ({
-    id = uuid(),
     description = "",
     note = "",
     amount = 0,

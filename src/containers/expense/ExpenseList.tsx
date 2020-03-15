@@ -1,9 +1,9 @@
 import React from "react";
 import ExpenseListItem from "./ExpenseListItem";
-import { useExpensesSelector } from "../../store/selectors/expenses";
+import { useSelector } from "../../store/selector/selector";
 
 export const ExpenseList = () => {
-    const expenses = useExpensesSelector(state => state.expenses.expenses);
+    const expenses = useSelector(state => state.expenses.expenses);
 
     return (
         <div>
