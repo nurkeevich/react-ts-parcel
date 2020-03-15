@@ -2,7 +2,7 @@ import React, { Dispatch } from "react";
 import ExpenseForm from "../expense/ExpenseForm";
 import { RouteComponentProps } from "react-router-dom";
 import { Routes } from "../../constants/AppConstants";
-import { AppDispatch } from "../../store/store";
+import { AppDispatch, store } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { addExpense } from "../../store/actions/expenses";
 
@@ -19,7 +19,7 @@ const AddExpensePage: React.FC<AddExpensePageProps> = props => {
             <ExpenseForm
                 handleSubmit={expense => {
                     console.log(expense);
-                    // dispatch(addExpense(expense));
+                    store.dispatch(addExpense(expense));
                     props.history.push(Routes.HOME_PAGE);
                 }}
             />

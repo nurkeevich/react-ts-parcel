@@ -7,22 +7,7 @@ import {
 } from "../types/expenses";
 
 const initialState: ExpensesState = {
-    expenses: [
-        {
-            id: "1",
-            amount: 1500.0,
-            description: "Rent",
-            note: "Rent payment for October",
-            createdAt: 123456678
-        },
-        {
-            id: "2",
-            amount: 2500.0,
-            description: "Bank",
-            note: "Bank payment for November",
-            createdAt: 9876543221
-        }
-    ]
+    expenses: []
 };
 
 export const expensesReducer = (
@@ -32,6 +17,7 @@ export const expensesReducer = (
     switch (action.type) {
         case ADD_EXPENSE:
             return {
+                // Have a look to this line later
                 expenses: [...state.expenses, action.expense]
             };
 
@@ -52,12 +38,7 @@ export const expensesReducer = (
 
         case REMOVE_EXPENSE:
             return {
-                expenses: state.expenses.filter(expense => {
-                    console.log("Expense ID " + expense.id);
-                    console.log("Action ID " + action.id);
-
-                    expense.id !== action.id;
-                })
+                expenses: state.expenses.filter(({ id }) => id !== action.id)
             };
 
         default:

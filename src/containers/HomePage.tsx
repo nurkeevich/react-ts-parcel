@@ -1,5 +1,5 @@
 import React from "react";
-import { ExpenseList } from "./expense/ExpenseList";
+import ExpenseList from "./expense/ExpenseList";
 
 const HomePage = () => {
     return (
