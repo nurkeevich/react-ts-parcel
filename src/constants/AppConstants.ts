@@ -4,6 +4,7 @@ export enum Routes {
     ADD_EXPENSE = "/add",
     EDIT_EXPENSE = "/edit"
 }
+export const editExpensePageExtension = "/:id";
 
 export enum SortBy {
     amount = "amount",

@@ -3,6 +3,8 @@ import { Expense } from "../../store/types/expenses";
 import { AppDispatch } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { removeExpense } from "../../store/actions/expenses";
+import { Link } from "react-router-dom";
+import { Routes } from "../../constants/AppConstants";
 
 interface ExpenseListItemProps {
     expense: Expense;
@@ -18,7 +20,9 @@ const ExpenseListItem = ({ expense }: ExpenseListItemProps) => {
 
     return (
         <div>
-            <h3>{description}</h3>
+            <Link to={Routes.EDIT_EXPENSE + "/" + id}>
+                <h3>{description}</h3>
+            </Link>
             <p>amount: {amount}</p>
             <p>createdAt: {createdAt}</p>
             <button onClick={handleRemove}>Remove</button>
