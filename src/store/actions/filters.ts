@@ -28,13 +28,13 @@ export const setTextFilter = (text: string): FilterActionTypes => {
     };
 };
 
-export const SortByAmount = (): FilterActionTypes => {
+export const sortByAmount = (): FilterActionTypes => {
     return {
         type: SORT_BY_AMOUNT
     };
 };
 
-export const SortByDate = (): FilterActionTypes => {
+export const sortByDate = (): FilterActionTypes => {
     return {
         type: SORT_BY_DATE
     };

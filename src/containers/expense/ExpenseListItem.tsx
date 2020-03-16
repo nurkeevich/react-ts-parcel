@@ -14,7 +14,6 @@ const ExpenseListItem = ({ expense }: ExpenseListItemProps) => {
 
     const handleRemove = () => {
         dispatch(removeExpense(id!));
-        // console.log("Remove button clicked");
     };
 
     return (
