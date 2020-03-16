@@ -4,3 +4,8 @@ export enum Routes {
     ADD_EXPENSE = "/add",
     EDIT_EXPENSE = "/edit"
 }
+
+export enum SortBy {
+    amount = "amount",
+    date = "date"
+}
