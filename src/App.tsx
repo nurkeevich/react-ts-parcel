@@ -25,8 +25,8 @@ store.dispatch(
 );
 
 const state = store.getState();
-console.log("====================================");
-console.log(state);
-console.log("====================================");
+// console.log("====================================");
+// console.log(state);
+// console.log("====================================");
 
 export const App = () => <AppRoutes />;

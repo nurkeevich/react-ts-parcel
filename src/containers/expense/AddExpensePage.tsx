@@ -5,6 +5,7 @@ import { Routes } from "../../constants/AppConstants";
 import { AppDispatch, store } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { addExpense } from "../../store/actions/expenses";
+import { Expense } from "../../store/types/expenses";
 
 interface AddExpensePageProps extends RouteComponentProps {
     // Add here own props
@@ -13,14 +14,17 @@ interface AddExpensePageProps extends RouteComponentProps {
 const AddExpensePage: React.FC<AddExpensePageProps> = props => {
     // const dispatch: AppDispatch = useDispatch();
 
+    const handleSubmit = (expense: Expense) => {
+        store.dispatch(addExpense(expense));
+        props.history.push(Routes.HOME_PAGE);
+    };
+
     return (
         <div>
             <h1>Add Expense</h1>
             <ExpenseForm
                 handleSubmit={expense => {
-                    console.log(expense);
-                    store.dispatch(addExpense(expense));
-                    props.history.push(Routes.HOME_PAGE);
+                    handleSubmit(expense);
                 }}
             />
         </div>
