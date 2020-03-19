@@ -7,6 +7,7 @@ import "react-dates/lib/css/_datepicker.css";
 
 interface ExpenseFormProps {
     handleSubmit: (expense: Expense) => void;
+    expense?: Expense;
 }
 
 const ExpenseForm = (props: ExpenseFormProps) => {
@@ -15,11 +16,19 @@ const ExpenseForm = (props: ExpenseFormProps) => {
         noError = ""
     }
 
-    const [description, setDescription] = useState("");
-    const [createdAt, setCreatedAt] = useState(moment.default());
+    const [description, setDescription] = useState(
+        props.expense ? props.expense.description : ""
+    );
+    const [note, setNote] = useState(props.expense ? props.expense.note : "");
+    const [amount, setAmount] = useState(
+        props.expense?.amount ? (props.expense.amount / 100).toString() : ""
+    );
+    const [createdAt, setCreatedAt] = useState(
+        props.expense
+            ? moment.default(props.expense.createdAt)
+            : moment.default()
+    );
     const [calendarFocused, setCalendarFocused] = useState(false);
-    const [amount, setAmount] = useState("");
-    const [note, setNote] = useState("");
     const [error, setError] = useState(errorTypes.noError);
 
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {

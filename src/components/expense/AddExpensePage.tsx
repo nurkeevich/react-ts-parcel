@@ -3,22 +3,21 @@ import ExpenseForm from "../expense/ExpenseForm";
 import { RouteComponentProps } from "react-router-dom";
 import { Routes } from "../../constants/AppConstants";
 import { addExpense } from "../../store/actions/expenses";
-import { store } from "../../store/store";
+import { store, AppDispatch } from "../../store/store";
+import { useDispatch } from "react-redux";
+import { Expense } from "../../store/types/expenses";
 
-interface AddExpensePageProps extends RouteComponentProps {
-    // Add here own props
-}
+const AddExpensePage = () => {
+    const dispatch: AppDispatch = useDispatch();
 
-const AddExpensePage: React.FC<AddExpensePageProps> = props => {
+    const handleSubmit = (expense: Expense) => {
+        dispatch(addExpense(expense));
+    };
+
     return (
         <div>
             <h1>Add Expense</h1>
-            <ExpenseForm
-                handleSubmit={expense => {
-                    store.dispatch(addExpense(expense));
-                    props.history.push(Routes.HOME_PAGE);
-                }}
-            />
+            <ExpenseForm handleSubmit={handleSubmit} />
         </div>
     );
 };
