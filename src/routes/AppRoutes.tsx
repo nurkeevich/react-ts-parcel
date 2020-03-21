@@ -17,17 +17,18 @@ const AppRoutes = () => {
                     <Route
                         path={Routes.HOME_PAGE}
                         exact={true}
-                        children={HomePage}
+                        component={HomePage}
                     />
-                    <Route path={Routes.ADD_EXPENSE}>
-                        <AddExpensePage />
-                    </Route>
+                    <Route
+                        path={Routes.ADD_EXPENSE}
+                        component={AddExpensePage}
+                    />
                     <Route
                         path={Routes.EDIT_EXPENSE + "/:id"}
-                        children={EditExpensePage}
+                        component={EditExpensePage}
                     />
-                    <Route path={Routes.HELP_PAGE} children={HelpPage} />
-                    <Route children={NotFoundPage} />
+                    <Route path={Routes.HELP_PAGE} component={HelpPage} />
+                    <Route component={NotFoundPage} />
                 </Switch>
             </div>
         </BrowserRouter>
