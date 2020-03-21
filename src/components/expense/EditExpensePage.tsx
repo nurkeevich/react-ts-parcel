@@ -4,7 +4,7 @@ import { useSelector } from "../../store/selector/selector";
 import ExpenseForm from "./ExpenseForm";
 import { AppDispatch } from "../../store/store";
 import { useDispatch } from "react-redux";
-import { editExpense } from "../../store/actions/expenses";
+import { editExpense, removeExpense } from "../../store/actions/expenses";
 import { Routes } from "../../constants/AppConstants";
 import { Expense } from "../../store/types/expenses";
 
@@ -20,8 +20,6 @@ const EditExpensePage: React.FC<EditExpensePageProps> = props => {
         });
     });
 
-    console.log("id", props.match.params.id);
-
     const handleSubmit = (expense: Expense) => {
         console.log("====================================");
         console.log("updated", expense);
@@ -31,7 +29,17 @@ const EditExpensePage: React.FC<EditExpensePageProps> = props => {
         props.history.push(Routes.HOME_PAGE);
     };
 
-    return <ExpenseForm handleSubmit={handleSubmit} expense={expense} />;
+    const handleRemoveExpense = () => {
+        dispatch(removeExpense(props.match.params.id));
+        props.history.push(Routes.HOME_PAGE);
+    };
+
+    return (
+        <div>
+            <ExpenseForm handleSubmit={handleSubmit} expense={expense} />
+            <button onClick={handleRemoveExpense}>Remove</button>
+        </div>
+    );
 };
 
 export default EditExpensePage;
