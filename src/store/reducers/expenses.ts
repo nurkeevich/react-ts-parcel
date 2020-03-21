@@ -21,6 +21,11 @@ export const expensesReducer = (
                 expenses: [...state.expenses, action.expense]
             };
 
+        case REMOVE_EXPENSE:
+            return {
+                expenses: state.expenses.filter(({ id }) => id !== action.id)
+            };
+
         case EDIT_EXPENSE:
             return {
                 expenses: state.expenses.map(expense => {
@@ -34,11 +39,6 @@ export const expensesReducer = (
                         return expense;
                     }
                 })
-            };
-
-        case REMOVE_EXPENSE:
-            return {
-                expenses: state.expenses.filter(({ id }) => id !== action.id)
             };
 
         default:
